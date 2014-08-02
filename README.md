@@ -29,6 +29,10 @@ This category is in a separate file from the other functions because it requires
 
 Creates a new NSData object containing the gzip compressed contents of the receiver. This method uses zlib to perform gzip compression optimized for space not speed. It also uses a single call to `deflate` with a bounded buffer that is larger than necessary, since the intention of this function is to create a temporary NSData object that gets immediately saved to disk or uploaded.
 
+## ARC
+
+These files do not use ARC, if your project is using ARC be sure to add the -fno-objc-arc compiler flags to build phases of these files.
+
 ## License
 
 The BSD License
