@@ -30,14 +30,14 @@ static void *decodeBase64(const char *restrict base64Str, size_t length, size_t 
 
 - (NSString *)base64String
 {
-	size_t length;
+	size_t length = 0;
 	char *base64Str = encodeBase64([self bytes], [self length], &length);
 	return [[[NSString alloc] initWithBytesNoCopy:base64Str length:length encoding:NSUTF8StringEncoding freeWhenDone:YES] autorelease];
 }
 
 + (NSData *)dataWithBase64String:(NSString *)base64String
 {
-	size_t size;
+	size_t size = 0;
 	void *data = decodeBase64([base64String UTF8String], [base64String length], &size);
 	return [NSData dataWithBytesNoCopy:data length:size freeWhenDone:YES];
 }
